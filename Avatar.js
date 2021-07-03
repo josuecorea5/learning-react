@@ -7,20 +7,23 @@ const Avatar = (params) => {
 
 ReactDOM.render(e(Avatar, { id: 20, gender: "women" }), app);
 
+//import of useState
+const useState = React.useState;
 
 //Component using jsx
 const Avatar = (params) => {
+  //state of component
+  const [enabled, setEnabled] = useState(true);
   const src = `https://randomuser.me/api/portraits/${params.gender}/${params.id}.jpg`;
 
   return (
     <picture>
       <img
-        onClick={(event) => {
-          event.target.classList.toggle("disabled");
-        }}
+        onClick={() => setEnabled(!enabled)}
         src={src}
+        className={className}
       />
-      <em>{params.name}</em>
+      <em>{props.name}</em>
     </picture>
   );
 };
